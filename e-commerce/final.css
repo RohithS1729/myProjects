@@ -1,0 +1,247 @@
+*{
+    margin: 0;padding: 0;
+}
+header{
+    height: 75px;
+    ;
+    display: flex;
+    justify-content: space-around;
+
+    position: sticky;
+    top: 0;
+    margin-bottom: 16px;
+}
+#mid-items{
+    display: flex;
+}
+#right-item{
+    display: flex;
+}
+
+/* burger */
+/* BURGER STYLE */
+.burger {
+    display: none;
+    padding-top: 5px;
+    cursor: pointer;
+  }
+  .burger div {
+    width: 25px;
+    height: 3px;
+    background-color: rgb(27, 25, 25);
+    margin: 5px;
+    transition: all 0.3s ease;
+  }
+  
+  /* BURGER STYLE */
+
+/* side bar */
+/* NAVBAR STYLE */
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+    width: 30%;
+    padding-top: 8px;
+  }
+  .nav-links li a {
+    text-decoration: none;
+    font-size: 14px;
+    color: rgb(27, 25, 25);
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 2px;
+    transition: all 0.2s;
+  }
+  .nav-links li a:hover {
+    color: #009688;
+  }
+/* NAVBAR ACTIVE STYLE */
+.nav-active {
+    transform: translateX(0%);
+    
+  }
+
+
+
+  .toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+  .toggle .line2 {
+    opacity: 0;
+  }
+  .toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+
+/* footer */
+footer{
+    background-color: purple;
+    /* height: 1200px; */
+
+}
+/* main */
+#finalImage{
+    height: 400px;
+}
+main{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#thankYou{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+/* same css */
+#left-item{
+    font-size: 30px;
+}
+#left-item span:first-child{
+    color: #009688;
+}
+
+
+#mid-items div{
+    margin-right: 32px;
+}
+#right-item > div{
+    margin-right: 32px;
+}
+header{
+    display: flex;
+    align-items: center;
+    box-shadow: 2px 4px 2px rgb(17 16 16 / 50%);
+}
+#headerSmall{
+    display: none;
+}
+#cart-count{
+    
+    transform: translateY(-14px);
+    background-color: #009688;
+    border-radius: 40%;
+    color: white;
+    padding: 2px;
+    display: flex;
+    
+    justify-content: center;
+    
+    
+}
+
+#cart-icon{
+    display: flex;
+}
+footer{
+    display: flex;
+    
+    justify-content: space-around;
+    background-color: black;
+    color: white;
+    padding: 30px;
+    margin-top: 50px;
+}
+ul{
+    margin-bottom: 16px;
+}
+
+
+ul li{
+    list-style-type: none;
+    
+    
+}
+ul li h3{
+    margin-bottom: 16px
+}
+
+footer a{
+    text-decoration: none;
+    color: white;
+  }
+  footer a:hover{
+    color: #009688;
+  }
+@media screen and (max-width:900px) {
+    footer{
+        display: flex;
+        flex-wrap: wrap;
+        height: fit-content;
+    }
+   
+}
+@media screen and (max-width:800px) {
+    header{
+        display: none;
+    }
+    #headerSmall{
+        display: flex;
+        height: 100px;
+        justify-content: space-around;
+        align-items: center;
+
+        position: sticky;
+        top: 0;
+        display: flex;
+    align-items: center;
+    box-shadow: 2px 4px 2px rgb(17 16 16 / 50%);
+    background-color: white;
+    margin-bottom: 50px
+
+        
+    }
+    #position{
+        position: absolute;
+    }
+    #cart-count{
+        position: relative;
+        top: -2px;
+        right: -18px;
+        
+    }
+    #right-item a{
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .burger {
+        display: block;
+      }
+    
+      .nav-links {
+        position: absolute;
+        right: 0;
+        height: 89vh;
+        top: 10.4vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        width: 50%;
+        transform: translateX(100%);
+        transition: 0.5s ease-in;
+        background: #009688;
+        z-index: 100;
+      }
+      .nav-links li {
+        opacity: 1;
+        margin-top: 100px;
+      }
+      .nav-links li a {
+        color: rgb(27, 25, 25);
+      }
+      .nav-links li a:hover {
+        color: #fff;
+      }
+      .nav-active {
+        transform: translateX(0%);
+        
+      }
+}
