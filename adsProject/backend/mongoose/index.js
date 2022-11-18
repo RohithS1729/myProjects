@@ -34,41 +34,40 @@ const hostName='8080';
 
 app.get('/', (req,res)=>{
     
-    let toSearchWord=req.url.split('=')[1];
-
-
-    mongoose.model('data1').aggregate([
-       
-        {
-            "$match":{ "$or": [{ "headline": {"$regex":} },
-             { "primaryText": {"$regex":} },
-             {"description": {"$regex":}}
-            
-            ] }
-        },        
-        {
-            "$lookup": {
-                "from": "data2",
-                "localField": "idArray",
-                "foreignField": "_id",
-                "as": "added"
+    let toSearchWord=req.url.split('=')[1]; 
+    let regComb=RegExp(toSearchWord)
+  
+    function passingRegex(Regex){
+        mongoose.model('data1').aggregate([
+      
+            {
+                "$match":{ "$or": [{ "headline": {"$regex":Regex} },
+                 { "primaryText": {"$regex":Regex} },
+                 {"description": {"$regex":Regex}}
+                
+                ] }
+            },           
+            {
+                "$lookup": {
+                    "from": "data2",
+                    "localField": "idArray",
+                    "foreignField": "_id",
+                    "as": "added"
+                }               
+            },
+            {
+                "$unwind":"$added"
+            },          
+     
+         ]).exec(function(err, results){
+            if(err){
+                console.log(err)
             }
-            
-        },
-        {
-            "$unwind":"$added"
-        },
-
-
-        
- 
-     ]).exec(function(err, results){
-        if(err){
-            console.log(err)
-        }
-        res.send(results)
-        ;
-     })
+            res.send(results)
+            ;
+         })
+    }
+    passingRegex(regComb)
 
 
 
