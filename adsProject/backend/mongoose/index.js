@@ -40,9 +40,9 @@ app.get('/', (req,res)=>{
     mongoose.model('data1').aggregate([
        
         {
-            "$match":{ "$or": [{ "headline": {"$regex":/`${toSeachWord}`/i} },
-             { "primaryText": {"$regex":/`${toSeachWord}`/i} },
-             {"description": {"$regex":/`${toSeachWord}`/i}}
+            "$match":{ "$or": [{ "headline": {"$regex":} },
+             { "primaryText": {"$regex":} },
+             {"description": {"$regex":}}
             
             ] }
         },        
