@@ -40,13 +40,7 @@ app.get('/', (req,res)=>{
     function passingRegex(Regex){
         mongoose.model('data1').aggregate([
       
-            {
-                "$match":{ "$or": [{ "headline": {"$regex":Regex} },
-                 { "primaryText": {"$regex":Regex} },
-                 {"description": {"$regex":Regex}}
-                
-                ] }
-            },           
+                       
             {
                 "$lookup": {
                     "from": "data2",
@@ -55,6 +49,16 @@ app.get('/', (req,res)=>{
                     "as": "added"
                 }               
             },
+            {
+                "$match":{ "$or": [
+                    { "headline": {"$regex":Regex} },
+                 { "primaryText": {"$regex":Regex} },
+                 {"description": {"$regex":Regex}},
+                 {"added.name":{"$regex":Regex}}
+                
+                ] }
+            }
+            ,
             {
                 "$unwind":"$added"
             },          
