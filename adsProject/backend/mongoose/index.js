@@ -49,6 +49,10 @@ app.get('/', (req,res)=>{
                     "as": "added"
                 }               
             },
+                        {
+                "$unwind":"$added"
+            } 
+            ,
             {
                 "$match":{ "$or": [
                     { "headline": {"$regex":Regex} },
@@ -58,10 +62,8 @@ app.get('/', (req,res)=>{
                 
                 ] }
             }
-            ,
-            {
-                "$unwind":"$added"
-            },          
+            
+         
      
          ]).exec(function(err, results){
             if(err){
